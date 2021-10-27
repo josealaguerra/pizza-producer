@@ -106,37 +106,8 @@ public class Util {
         
         return sqlDate;
     }
-    
-    /***
-     * Imprime en consola una excepción de SQL.
-     * @param sDate
-     * @return 
-     */         
-    public static void printSQLException(String msj, SQLException ex){
-        System.out.println(msj+
-                            " | Mensaje: "+ex.getMessage()+
-                            ", stack trace: "+ex.getStackTrace()+
-                            ", exception: "+ex.toString());
-        Logger.getLogger(ConectaBD.class.getName()).log(Level.SEVERE, null, ex);        
-        for(Throwable e:ex){
-            if(e instanceof SQLException){
-                e.printStackTrace(System.err);
-                System.err.println("SQL State");
-                
-            }
-                
-        }
-    }
-    
-    /***
-     * Imprime en consola una excepción de SQL.  Versión simplificada
-     * @param sDate
-     * @return 
-     */             
-    public static void printSQLException(SQLException ex){
-        printSQLException("", ex);
-    }
-    
+
+   
         
     /***
      * Imprime en consola una excepción.
@@ -145,7 +116,7 @@ public class Util {
      */             
     public static void printException(String msj, Exception ex){
         System.out.println(msj+" | Mensaje: "+ex.getMessage()+", stack trace: "+ex.getStackTrace());
-        Logger.getLogger(ConectaBD.class.getName()).log(Level.SEVERE, null, ex);        
+        Logger.getLogger(Util.class.getName()).log(Level.SEVERE, null, ex);        
     }
     
     /***
@@ -187,10 +158,36 @@ public class Util {
         return nuevoDoble;
     }
     
-    private static String getMessageWTS(String msg){
-		String sTimeStamp = new Date().toString("YYYY-mm-DD HH:mm:SS.ccc");
+    public static String getMessageWTS(String msg){
+        String sTimeStamp = new Date().toString();
 		
-		return sTimeStamp + " "+msg;
-	}	
+	return sTimeStamp + " "+msg;
+    }
+
+
+
+   
+        
+    /***
+     * Imprime en consola una excepción.
+     * @param sDate
+     * @return 
+     */             
+    public static void print(String msj){
+        System.out.println(msj);
+        //Logger.getLogger(Util.class.getName()).log(Level.INFO, null, msj);
+    }
+
+
+
+    /***
+     * Imprime en consola una excepción.
+     * @param sDate
+     * @return 
+     */             
+    public static void getMsgWTS(String msj){
+        print( getMessageWTS(msj+"\n") );
+    }
+
 
 }

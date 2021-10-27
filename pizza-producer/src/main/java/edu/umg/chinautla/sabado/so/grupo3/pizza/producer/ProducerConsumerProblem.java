@@ -10,15 +10,15 @@ package edu.umg.chinautla.sabado.so.grupo3.pizza.producer;
  */
 public class ProducerConsumerProblem {
 
-    public void main(String []args){
+    public static void main(String []args){
 		
-		Producer p = new Producer();
-		p.setName("Chef 1");
-		p.setStart();
-		
-		Consumer c = new Consumer(p);
-		c.setName("Cliente 1");
-		c.setStart();
-		
-	}
+        Producer p = new Producer();
+        p.setName("Chef 1");
+        p.start();
+
+        Consumer c = new Consumer(p);
+        c.setName("Cliente 1");
+        p.start();
+
+    }
 }

@@ -16,16 +16,16 @@ public class Consumer extends Thread{
 		this.productor=paramProductor;
 	}
 
-	@Override
-	public void run(){
-		try{
-			while(true){
-				String data=productor.consume();
-				Util.getMessageWTS("Consumido por: "+Thread.currentThread().getName() + ", data: " + data);
-			}
-		}catch (Exception e){
-			Util.printException("Producer.run", e);
-		}
-	}
+    @Override
+    public void run(){
+        try{
+            while(true){
+                String data = productor.consume();
+                Util.getMsgWTS("Consumido por: "+Thread.currentThread().getName() + ", data: " + data);
+            }
+        }catch (Exception e){
+            Util.printException("Producer.run", e);
+        }
+    }
 
 }
