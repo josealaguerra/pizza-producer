@@ -8,6 +8,24 @@ package edu.umg.chinautla.sabado.so.grupo3.pizza.producer;
  *
  * @author jag
  */
-public class Consumer {
-    
+public class Consumer extends Thread{
+
+    private Producer productor;
+	
+	public Consumer(Producer paramProductor){
+		this.productor=paramProductor;
+	}
+
+	@Override
+	public void run(){
+		try{
+			while(true){
+				String data=productor.consume();
+				Util.getMessageWTS("Consumido por: "+Thread.currentThread().getName() + ", data: " + data);
+			}
+		}catch (Exception e){
+			Util.printException("Producer.run", e);
+		}
+	}
+
 }
