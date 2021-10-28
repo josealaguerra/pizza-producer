@@ -19,7 +19,7 @@ public class Producer extends Thread{
     private List<String> listaPizzas = Arrays.asList("Pepperoni", "Margarita", "Jamón y QUeso", "Jamon y Hongos","La Suprema");
     private Random pizzaAleatoria;
     private String data = null;
-    private static final int MAX_SIZE = 1;
+    private static final int MAX_SIZE = 5;
     private final List<String> messages = new ArrayList<>();
 
 
